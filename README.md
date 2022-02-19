@@ -1,3 +1,3 @@
-# arm64-to-sim
+# mach-platform-converter
 
-A simple command-line tool for hacking native ARM64 binaries to run on the Apple Silicon iOS Simulator.
+A simple command-line tool for hacking binaries anf make them run on every Apple platform (if right arch is present)
