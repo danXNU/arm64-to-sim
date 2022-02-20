@@ -11,8 +11,8 @@ public enum Transmogrifier {
         let headerData = try! handle.read(upToCount: MemoryLayout<mach_header_64>.stride)!
         
         let header: mach_header_64 = headerData.asStruct()
-        if header.magic != MH_MAGIC_64 || header.cputype != CPU_TYPE_ARM64 {
-            fatalError("The file is not a correct arm64 binary. Try thinning (via lipo) or unarchiving (via ar) first.")
+        if header.magic != MH_MAGIC_64 {
+            fatalError("The file is not a correct 64 bit binary. Try thinning (via lipo) or unarchiving (via ar) first.")
         }
         
         let loadCommandsData: [Data] = (0..<header.ncmds).map { _ in
